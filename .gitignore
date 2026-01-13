@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Build outputs (if any)
+dist/
+build/
+
+# Environment files
+.env
+.env.local
