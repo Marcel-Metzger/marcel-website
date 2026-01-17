@@ -70,6 +70,7 @@ function initTypewriter() {
     if (!element) return;
     
     const titles = [
+        'Finance & Risk Trainee',
         'Aspiring Quant Researcher',
         'Data-Driven Analyst',
         'Quantitative Finance Enthusiast',
