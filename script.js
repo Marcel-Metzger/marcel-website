@@ -14,9 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('%c📈 Built with data & curiosity', 'font-size: 14px; color: #8b5cf6;');
 });
 
-/**
- * Navigation
- */
 function initNavigation() {
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav-toggle');
@@ -45,9 +42,6 @@ function initNavigation() {
     });
 }
 
-/**
- * Theme Toggle
- */
 function initThemeToggle() {
     const themeToggle = document.querySelector('.theme-toggle');
     const themeIcon = themeToggle?.querySelector('.theme-icon');
@@ -71,9 +65,6 @@ function initThemeToggle() {
     });
 }
 
-/**
- * Typewriter Effect
- */
 function initTypewriter() {
     const element = document.querySelector('.typewriter');
     if (!element) return;
@@ -81,7 +72,7 @@ function initTypewriter() {
     const titles = [
         'Aspiring Quant Researcher',
         'Data-Driven Analyst',
-        'Finance & Risk Professional',
+        'Quantitative Finance Enthusiast',
         'Algorithmic Thinker'
     ];
     
@@ -125,9 +116,6 @@ function initTypewriter() {
     type();
 }
 
-/**
- * Scroll Reveal
- */
 function initScrollReveal() {
     const elements = document.querySelectorAll('.section, .project-card, .timeline-item, .skill-category');
     
@@ -146,9 +134,6 @@ function initScrollReveal() {
     });
 }
 
-/**
- * Counter Animation
- */
 function initCounterAnimation() {
     const counters = document.querySelectorAll('.stat-number');
     
@@ -180,9 +165,6 @@ function initCounterAnimation() {
     counters.forEach(counter => observer.observe(counter));
 }
 
-/**
- * Smooth Scroll
- */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -199,9 +181,6 @@ function initSmoothScroll() {
     });
 }
 
-/**
- * Active Nav Highlighting
- */
 function initActiveNav() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
