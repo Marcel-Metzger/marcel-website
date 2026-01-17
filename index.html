@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,20 +26,20 @@
                 <span class="logo-text">MPM</span>
                 <span class="logo-bracket">}</span>
             </a>
-            <button class="nav-toggle" aria-label="Menü öffnen">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">Über mich</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Erfahrung</a></li>
-                <li><a href="#projects" class="nav-link">Projekte</a></li>
-                <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <button class="theme-toggle" aria-label="Theme wechseln">
+            <button class="theme-toggle" aria-label="Toggle theme">
                 <span class="theme-icon">🌙</span>
+            </button>
+            <button class="nav-toggle" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </nav>
@@ -54,20 +54,20 @@
             </div>
             <div class="hero-content">
                 <div class="hero-text">
-                    <p class="hero-greeting">Hi, ich bin</p>
+                    <p class="hero-greeting">Hi, I'm</p>
                     <h1 class="hero-name">Marcel-Philippe Metzger</h1>
                     <h2 class="hero-title">
-                        <span class="typewriter" data-texts='["Aspiring Quant Researcher", "Data-Driven Analyst", "Finance & Risk Professional", "Algorithmic Thinker"]'></span>
+                        <span class="typewriter"></span>
                         <span class="cursor">|</span>
                     </h2>
                     <p class="hero-description">
-                        Ich verbinde quantitative Methoden, statistische Modellierung und Finanzmärkte, 
-                        um datengetriebene Investmentansätze zu entwickeln. Aktuell baue ich meine 
-                        Expertise in Quant Research und algorithmischem Trading aus.
+                        I combine quantitative methods, statistical modeling, and financial markets 
+                        to develop data-driven investment approaches. Currently building my expertise 
+                        in quant research and algorithmic trading.
                     </p>
                     <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">Meine Projekte</a>
-                        <a href="#contact" class="btn btn-secondary">Kontakt</a>
+                        <a href="#projects" class="btn btn-primary">My Projects</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -80,19 +80,19 @@
                             </div>
                             <span class="code-title">strategy.py</span>
                         </div>
-                        <pre class="code-content"><code><span class="code-keyword">import</span> <span class="code-var">numpy</span> <span class="code-keyword">as</span> <span class="code-var">np</span>
-<span class="code-keyword">import</span> <span class="code-var">pandas</span> <span class="code-keyword">as</span> <span class="code-var">pd</span>
-<span class="code-keyword">from</span> <span class="code-var">scipy.stats</span> <span class="code-keyword">import</span> <span class="code-var">zscore</span>
+                        <pre class="code-content"><code><span class="code-keyword">import</span> numpy <span class="code-keyword">as</span> np
+<span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
+<span class="code-keyword">from</span> scipy.stats <span class="code-keyword">import</span> zscore
 
 <span class="code-keyword">class</span> <span class="code-class">MomentumStrategy</span>:
-    <span class="code-keyword">def</span> <span class="code-method">__init__</span>(<span class="code-var">self</span>, <span class="code-var">lookback</span>=<span class="code-num">252</span>):
-        <span class="code-var">self</span>.<span class="code-prop">lookback</span> = lookback
-        <span class="code-var">self</span>.<span class="code-prop">risk_limit</span> = <span class="code-num">0.02</span>
+    <span class="code-keyword">def</span> <span class="code-method">__init__</span>(self, lookback=<span class="code-num">252</span>):
+        self.lookback = lookback
+        self.risk_limit = <span class="code-num">0.02</span>
 
-    <span class="code-keyword">def</span> <span class="code-method">generate_signals</span>(<span class="code-var">self</span>, <span class="code-var">prices</span>):
-        <span class="code-var">returns</span> = prices.<span class="code-method">pct_change</span>()
-        <span class="code-var">momentum</span> = returns.<span class="code-method">rolling</span>(<span class="code-var">self</span>.lookback).<span class="code-method">sum</span>()
-        <span class="code-keyword">return</span> <span class="code-method">zscore</span>(momentum.<span class="code-method">dropna</span>())</code></pre>
+    <span class="code-keyword">def</span> <span class="code-method">generate_signals</span>(self, prices):
+        returns = prices.pct_change()
+        momentum = returns.rolling(self.lookback).sum()
+        <span class="code-keyword">return</span> zscore(momentum.dropna())</code></pre>
                     </div>
                 </div>
             </div>
@@ -107,34 +107,33 @@
             <div class="container">
                 <h2 class="section-title">
                     <span class="title-number">01.</span>
-                    Über mich
+                    About Me
                 </h2>
                 <div class="about-grid">
                     <div class="about-text">
                         <p>
-                            Willkommen! Ich bin Marcel-Philippe — aktuell Trainee im Bereich Finance & Risk 
-                            mit dem klaren Ziel, in die Welt des Quantitative Finance einzusteigen. 
-                            Mich fasziniert die Schnittstelle zwischen Finanzmärkten, Datenanalyse und 
-                            algorithmischer Entscheidungsfindung.
+                            Welcome! I'm Marcel-Philippe — currently a trainee in Finance & Risk 
+                            with a clear goal of breaking into quantitative finance. I'm fascinated 
+                            by the intersection of financial markets, data analysis, and algorithmic 
+                            decision-making.
                         </p>
                         <p>
-                            Ich arbeite daran, meine Fähigkeiten in statistischer Modellierung, 
-                            Python-Programmierung und quantitativen Methoden kontinuierlich auszubauen. 
-                            Mein Ziel: robuste, datengetriebene Handelsstrategien entwickeln und 
-                            komplexe Finanzprobleme mit analytischer Präzision lösen.
+                            I'm continuously developing my skills in statistical modeling, Python 
+                            programming, and quantitative methods. My goal: building robust, data-driven 
+                            trading strategies and solving complex financial problems with analytical precision.
                         </p>
                         <p>
-                            Neben der Arbeit vertiefe ich mich in Backtesting-Frameworks, 
-                            Zeitreihenanalyse und Machine-Learning-Anwendungen für Finanzmärkte.
+                            Outside of work, I dive deep into backtesting frameworks, time series analysis, 
+                            and machine learning applications for financial markets.
                         </p>
                         <div class="about-stats">
                             <div class="stat">
                                 <span class="stat-number" data-count="3">0</span>
-                                <span class="stat-label">Quant-Projekte</span>
+                                <span class="stat-label">Quant Projects</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-number" data-count="8">0</span>
-                                <span class="stat-label">Technologien</span>
+                                <span class="stat-label">Technologies</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-number" data-count="100">0</span><span class="stat-suffix">%</span>
@@ -159,7 +158,7 @@
             <div class="container">
                 <h2 class="section-title">
                     <span class="title-number">02.</span>
-                    Skills & Technologien
+                    Skills & Technologies
                 </h2>
                 <div class="skills-container">
                     <div class="skill-category">
@@ -168,12 +167,12 @@
                             Quantitative Methods
                         </h3>
                         <div class="skill-tags">
-                            <span class="skill-tag" data-level="80">Statistical Modeling</span>
-                            <span class="skill-tag" data-level="75">Time Series Analysis</span>
-                            <span class="skill-tag" data-level="70">Risk Management</span>
-                            <span class="skill-tag" data-level="70">Portfolio Optimization</span>
-                            <span class="skill-tag" data-level="65">Backtesting</span>
-                            <span class="skill-tag" data-level="60">Factor Models</span>
+                            <span class="skill-tag">Statistical Modeling</span>
+                            <span class="skill-tag">Time Series Analysis</span>
+                            <span class="skill-tag">Risk Management</span>
+                            <span class="skill-tag">Portfolio Optimization</span>
+                            <span class="skill-tag">Backtesting</span>
+                            <span class="skill-tag">Factor Models</span>
                         </div>
                     </div>
                     <div class="skill-category">
@@ -182,12 +181,12 @@
                             Programming & Data
                         </h3>
                         <div class="skill-tags">
-                            <span class="skill-tag" data-level="80">Python</span>
-                            <span class="skill-tag" data-level="70">Pandas / NumPy</span>
-                            <span class="skill-tag" data-level="65">SQL</span>
-                            <span class="skill-tag" data-level="60">R</span>
-                            <span class="skill-tag" data-level="55">Scikit-Learn</span>
-                            <span class="skill-tag" data-level="50">VBA / Excel</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Pandas / NumPy</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">Scikit-Learn</span>
+                            <span class="skill-tag">VBA / Excel</span>
                         </div>
                     </div>
                     <div class="skill-category">
@@ -196,12 +195,12 @@
                             Tools & Platforms
                         </h3>
                         <div class="skill-tags">
-                            <span class="skill-tag" data-level="75">Git / GitHub</span>
-                            <span class="skill-tag" data-level="70">Jupyter Notebooks</span>
-                            <span class="skill-tag" data-level="65">Bloomberg Terminal</span>
-                            <span class="skill-tag" data-level="60">VS Code</span>
-                            <span class="skill-tag" data-level="55">Linux CLI</span>
-                            <span class="skill-tag" data-level="50">Docker</span>
+                            <span class="skill-tag">Git / GitHub</span>
+                            <span class="skill-tag">Jupyter Notebooks</span>
+                            <span class="skill-tag">Bloomberg Terminal</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Linux CLI</span>
+                            <span class="skill-tag">Docker</span>
                         </div>
                     </div>
                 </div>
@@ -213,7 +212,7 @@
             <div class="container">
                 <h2 class="section-title">
                     <span class="title-number">03.</span>
-                    Erfahrung
+                    Experience
                 </h2>
                 <div class="timeline">
                     <div class="timeline-item">
@@ -221,13 +220,13 @@
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <h3 class="timeline-title">Trainee Finance & Risk</h3>
-                                <span class="timeline-company">@ Aktuelle Position</span>
+                                <span class="timeline-company">@ Current Position</span>
                             </div>
-                            <span class="timeline-date">2024 - Heute</span>
+                            <span class="timeline-date">2024 - Present</span>
                             <ul class="timeline-list">
-                                <li>Analyse von Finanzdaten und Risikokennzahlen für Investmententscheidungen</li>
-                                <li>Unterstützung bei der Entwicklung von Risikomodellen und Reporting-Prozessen</li>
-                                <li>Erste Erfahrungen mit quantitativen Analysemethoden im praktischen Einsatz</li>
+                                <li>Analyzing financial data and risk metrics for investment decisions</li>
+                                <li>Supporting the development of risk models and reporting processes</li>
+                                <li>First hands-on experience with quantitative analysis methods</li>
                             </ul>
                             <div class="timeline-tags">
                                 <span>Risk Analysis</span>
@@ -240,14 +239,14 @@
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 class="timeline-title">Studium / Ausbildung</h3>
+                                <h3 class="timeline-title">Education</h3>
                                 <span class="timeline-company">@ Finance / Economics</span>
                             </div>
-                            <span class="timeline-date">vor 2024</span>
+                            <span class="timeline-date">Before 2024</span>
                             <ul class="timeline-list">
-                                <li>Fundierte Grundlagen in Finanztheorie, Statistik und Ökonometrie</li>
-                                <li>Selbststudium in Python, quantitativen Methoden und Algorithmik</li>
-                                <li>Erste eigene Projekte im Bereich Backtesting und Datenanalyse</li>
+                                <li>Strong foundation in finance theory, statistics, and econometrics</li>
+                                <li>Self-study in Python, quantitative methods, and algorithms</li>
+                                <li>First personal projects in backtesting and data analysis</li>
                             </ul>
                             <div class="timeline-tags">
                                 <span>Finance Theory</span>
@@ -265,7 +264,7 @@
             <div class="container">
                 <h2 class="section-title">
                     <span class="title-number">04.</span>
-                    Projekte
+                    Projects
                 </h2>
                 <div class="projects-grid">
                     <article class="project-card featured">
@@ -274,14 +273,7 @@
                                 <span>📊</span>
                             </div>
                             <div class="project-overlay">
-                                <a href="#" class="project-link" aria-label="Projekt ansehen">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                        <polyline points="15 3 21 3 21 9"/>
-                                        <line x1="10" y1="14" x2="21" y2="3"/>
-                                    </svg>
-                                </a>
-                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="GitHub Repository">
+                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="View on GitHub" target="_blank" rel="noopener">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
                                     </svg>
@@ -292,9 +284,9 @@
                             <span class="project-label">Featured Project</span>
                             <h3 class="project-title">Momentum Backtesting Framework</h3>
                             <p class="project-description">
-                                Ein Python-basiertes Backtesting-Framework für Momentum-Strategien. 
-                                Implementiert Cross-Sectional Momentum, Risikomanagement via 
-                                Position Sizing und Performance-Attribution.
+                                A Python-based backtesting framework for momentum strategies. 
+                                Implements cross-sectional momentum, risk management via position sizing, 
+                                and performance attribution.
                             </p>
                             <div class="project-tech">
                                 <span>Python</span>
@@ -311,14 +303,7 @@
                                 <span>📉</span>
                             </div>
                             <div class="project-overlay">
-                                <a href="#" class="project-link" aria-label="Projekt ansehen">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                        <polyline points="15 3 21 3 21 9"/>
-                                        <line x1="10" y1="14" x2="21" y2="3"/>
-                                    </svg>
-                                </a>
-                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="GitHub Repository">
+                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="View on GitHub" target="_blank" rel="noopener">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
                                     </svg>
@@ -328,8 +313,8 @@
                         <div class="project-content">
                             <h3 class="project-title">Portfolio Risk Dashboard</h3>
                             <p class="project-description">
-                                Interaktives Dashboard zur Visualisierung von Portfolio-Risikokennzahlen: 
-                                VaR, Expected Shortfall, Korrelationsmatrizen und Drawdown-Analyse.
+                                Interactive dashboard for visualizing portfolio risk metrics: 
+                                VaR, Expected Shortfall, correlation matrices, and drawdown analysis.
                             </p>
                             <div class="project-tech">
                                 <span>Python</span>
@@ -345,14 +330,7 @@
                                 <span>🤖</span>
                             </div>
                             <div class="project-overlay">
-                                <a href="#" class="project-link" aria-label="Projekt ansehen">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                        <polyline points="15 3 21 3 21 9"/>
-                                        <line x1="10" y1="14" x2="21" y2="3"/>
-                                    </svg>
-                                </a>
-                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="GitHub Repository">
+                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="View on GitHub" target="_blank" rel="noopener">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
                                     </svg>
@@ -362,8 +340,8 @@
                         <div class="project-content">
                             <h3 class="project-title">ML Price Prediction</h3>
                             <p class="project-description">
-                                Experimente mit Machine-Learning-Modellen zur Preisprognose: 
-                                Feature Engineering, Cross-Validation und Ensemble-Methoden.
+                                Experiments with machine learning models for price forecasting: 
+                                feature engineering, cross-validation, and ensemble methods.
                             </p>
                             <div class="project-tech">
                                 <span>Scikit-Learn</span>
@@ -375,7 +353,7 @@
                 </div>
                 <div class="projects-more">
                     <a href="https://github.com/Marcel-Metzger" class="btn btn-secondary" target="_blank" rel="noopener">
-                        Mehr auf GitHub
+                        More on GitHub
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                             <polyline points="15 3 21 3 21 9"/>
@@ -391,32 +369,38 @@
             <div class="container">
                 <h2 class="section-title">
                     <span class="title-number">05.</span>
-                    Kontakt
+                    Contact
                 </h2>
                 <div class="contact-content">
                     <div class="contact-text">
                         <h3 class="contact-heading">Let's connect!</h3>
                         <p>
-                            Ich bin immer offen für Gespräche über Quantitative Finance, 
-                            spannende Projekte oder Karrieremöglichkeiten im Bereich 
-                            Quant Research und Trading. Schreib mir gerne!
+                            I'm always open to discussions about quantitative finance, 
+                            exciting projects, or career opportunities in quant research 
+                            and trading. Feel free to reach out!
                         </p>
                     </div>
                     <div class="contact-links">
                         <a href="mailto:contact@marcel-metzger.com" class="contact-item">
                             <span class="contact-icon">📧</span>
-                            <span class="contact-label">E-Mail</span>
-                            <span class="contact-value">contact@marcel-metzger.com</span>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">contact@marcel-metzger.com</span>
+                            </div>
                         </a>
                         <a href="https://de.linkedin.com/in/marcel-philippe-metzger" target="_blank" rel="noopener" class="contact-item">
                             <span class="contact-icon">💼</span>
-                            <span class="contact-label">LinkedIn</span>
-                            <span class="contact-value">Profil ansehen</span>
+                            <div>
+                                <span class="contact-label">LinkedIn</span>
+                                <span class="contact-value">marcel-philippe-metzger</span>
+                            </div>
                         </a>
                         <a href="https://github.com/Marcel-Metzger" target="_blank" rel="noopener" class="contact-item">
                             <span class="contact-icon">🐙</span>
-                            <span class="contact-label">GitHub</span>
-                            <span class="contact-value">@Marcel-Metzger</span>
+                            <div>
+                                <span class="contact-label">GitHub</span>
+                                <span class="contact-value">@Marcel-Metzger</span>
+                            </div>
                         </a>
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 /**
  * QUANT PORTFOLIO - Interactive JavaScript
- * Smooth animations, typewriter effect, and theme switching
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,30 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initActiveNav();
     
-    // Console easter egg
-    console.log('%c📈 Built with data & curiosity', 'font-size: 14px; color: #64ffda;');
+    console.log('%c📈 Built with data & curiosity', 'font-size: 14px; color: #8b5cf6;');
 });
 
 /**
- * Navigation Scroll Effect & Mobile Menu
+ * Navigation
  */
 function initNavigation() {
     const nav = document.querySelector('.nav');
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
-    let lastScroll = 0;
-    
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
+        if (window.pageYOffset > 50) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
-        
-        lastScroll = currentScroll;
     });
     
     navToggle?.addEventListener('click', () => {
@@ -54,7 +46,7 @@ function initNavigation() {
 }
 
 /**
- * Theme Toggle (Dark/Light Mode)
+ * Theme Toggle
  */
 function initThemeToggle() {
     const themeToggle = document.querySelector('.theme-toggle');
@@ -80,7 +72,7 @@ function initThemeToggle() {
 }
 
 /**
- * Typewriter Effect for Hero Title
+ * Typewriter Effect
  */
 function initTypewriter() {
     const element = document.querySelector('.typewriter');
@@ -98,15 +90,11 @@ function initTypewriter() {
     let isDeleting = false;
     let isPaused = false;
     
-    const typeSpeed = 80;
-    const deleteSpeed = 50;
-    const pauseTime = 2000;
-    
     function type() {
         const currentTitle = titles[titleIndex];
         
         if (isPaused) {
-            setTimeout(type, pauseTime);
+            setTimeout(type, 2000);
             isPaused = false;
             isDeleting = true;
             return;
@@ -121,7 +109,7 @@ function initTypewriter() {
                 titleIndex = (titleIndex + 1) % titles.length;
             }
             
-            setTimeout(type, deleteSpeed);
+            setTimeout(type, 50);
         } else {
             element.textContent = currentTitle.substring(0, charIndex + 1);
             charIndex++;
@@ -130,7 +118,7 @@ function initTypewriter() {
                 isPaused = true;
             }
             
-            setTimeout(type, typeSpeed);
+            setTimeout(type, 80);
         }
     }
     
@@ -138,38 +126,33 @@ function initTypewriter() {
 }
 
 /**
- * Scroll Reveal Animation
+ * Scroll Reveal
  */
 function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.section, .project-card, .timeline-item, .skill-category');
+    const elements = document.querySelectorAll('.section, .project-card, .timeline-item, .skill-category');
     
-    const revealOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const revealObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
-    }, revealOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     
-    revealElements.forEach(el => {
+    elements.forEach(el => {
         el.classList.add('reveal');
-        revealObserver.observe(el);
+        observer.observe(el);
     });
 }
 
 /**
- * Counter Animation for Stats
+ * Counter Animation
  */
 function initCounterAnimation() {
     const counters = document.querySelectorAll('.stat-number');
     
-    const counterObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
@@ -178,27 +161,27 @@ function initCounterAnimation() {
                 const step = target / (duration / 16);
                 let current = 0;
                 
-                const updateCounter = () => {
+                const update = () => {
                     current += step;
                     if (current < target) {
                         counter.textContent = Math.floor(current);
-                        requestAnimationFrame(updateCounter);
+                        requestAnimationFrame(update);
                     } else {
                         counter.textContent = target;
                     }
                 };
                 
-                updateCounter();
-                counterObserver.unobserve(counter);
+                update();
+                observer.unobserve(counter);
             }
         });
     }, { threshold: 0.5 });
     
-    counters.forEach(counter => counterObserver.observe(counter));
+    counters.forEach(counter => observer.observe(counter));
 }
 
 /**
- * Smooth Scroll for Anchor Links
+ * Smooth Scroll
  */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -207,10 +190,8 @@ function initSmoothScroll() {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 const navHeight = document.querySelector('.nav').offsetHeight;
-                const targetPosition = target.offsetTop - navHeight - 20;
-                
                 window.scrollTo({
-                    top: targetPosition,
+                    top: target.offsetTop - navHeight - 20,
                     behavior: 'smooth'
                 });
             }
@@ -219,7 +200,7 @@ function initSmoothScroll() {
 }
 
 /**
- * Active Navigation Link Highlighting
+ * Active Nav Highlighting
  */
 function initActiveNav() {
     const sections = document.querySelectorAll('section[id]');
@@ -231,9 +212,7 @@ function initActiveNav() {
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop - navHeight - 100;
-            const sectionHeight = section.offsetHeight;
-            
-            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+            if (window.pageYOffset >= sectionTop) {
                 current = section.getAttribute('id');
             }
         });
