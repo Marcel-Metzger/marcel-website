@@ -3,102 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Persönliches Portfolio und CV - Software Developer">
-    <meta name="author" content="Dein Name">
-    <title>Dein Name | Developer Portfolio</title>
+    <meta name="description" content="Marcel-Philippe Metzger — Aspiring Quantitative Researcher & Trader | Finance & Risk | Data-Driven Investment Strategies">
+    <meta name="keywords" content="Quantitative Finance, Quant Research, Algorithmic Trading, Portfolio Management, Risk Management, Python, Finance">
+    <meta name="author" content="Marcel-Philippe Metzger">
+    <meta property="og:title" content="Marcel-Philippe Metzger | Quantitative Finance">
+    <meta property="og:description" content="Aspiring Quant Researcher — Building data-driven investment strategies with statistical rigor.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marcel-metzger.com">
+    <title>Marcel-Philippe Metzger | Quantitative Finance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
 </head>
 <body>
-    <!-- Animated Background Grid -->
-    <div class="grid-bg" aria-hidden="true"></div>
-    
     <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="#home" class="nav-logo">
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
                 <span class="logo-bracket">{</span>
-                <span class="logo-text">DN</span>
+                <span class="logo-text">MPM</span>
                 <span class="logo-bracket">}</span>
             </a>
-            <div class="nav-links">
-                <a href="#about" class="nav-link">Über mich</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#experience" class="nav-link">Erfahrung</a>
-                <a href="#projects" class="nav-link">Projekte</a>
-                <a href="#contact" class="nav-link">Kontakt</a>
-            </div>
-            <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">
-                <span class="theme-icon">◐</span>
+            <button class="nav-toggle" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
-            <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
-                <span></span>
-                <span></span>
-                <span></span>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">Über mich</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Erfahrung</a></li>
+                <li><a href="#projects" class="nav-link">Projekte</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Theme wechseln">
+                <span class="theme-icon">🌙</span>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" class="mobile-link">Über mich</a>
-        <a href="#skills" class="mobile-link">Skills</a>
-        <a href="#experience" class="mobile-link">Erfahrung</a>
-        <a href="#projects" class="mobile-link">Projekte</a>
-        <a href="#contact" class="mobile-link">Kontakt</a>
-    </div>
-
+    <!-- Hero Section -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero" id="home">
+        <section class="hero" id="hero">
+            <div class="hero-background">
+                <div class="grid-pattern"></div>
+                <div class="gradient-orb gradient-orb-1"></div>
+                <div class="gradient-orb gradient-orb-2"></div>
+            </div>
             <div class="hero-content">
-                <div class="hero-intro">
-                    <span class="hero-greeting">Hallo, ich bin</span>
-                    <h1 class="hero-name">
-                        <span class="name-line">Dein</span>
-                        <span class="name-line accent">Name</span>
-                    </h1>
-                    <div class="hero-title-wrapper">
-                        <span class="hero-title-prefix">></span>
-                        <h2 class="hero-title" id="typewriter"></h2>
+                <div class="hero-text">
+                    <p class="hero-greeting">Hi, ich bin</p>
+                    <h1 class="hero-name">Marcel-Philippe Metzger</h1>
+                    <h2 class="hero-title">
+                        <span class="typewriter" data-texts='["Aspiring Quant Researcher", "Data-Driven Analyst", "Finance & Risk Professional", "Algorithmic Thinker"]'></span>
                         <span class="cursor">|</span>
-                    </div>
+                    </h2>
                     <p class="hero-description">
-                        Ich entwickle digitale Erlebnisse, die Technologie und Kreativität 
-                        verbinden. Spezialisiert auf <span class="highlight">moderne Webtechnologien</span> 
-                        und <span class="highlight">sauberen Code</span>.
+                        Ich verbinde quantitative Methoden, statistische Modellierung und Finanzmärkte, 
+                        um datengetriebene Investmentansätze zu entwickeln. Aktuell baue ich meine 
+                        Expertise in Quant Research und algorithmischem Trading aus.
                     </p>
                     <div class="hero-cta">
-                        <a href="#contact" class="btn btn-primary">
-                            <span>Kontakt aufnehmen</span>
-                            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </a>
-                        <a href="#projects" class="btn btn-secondary">Projekte ansehen</a>
+                        <a href="#projects" class="btn btn-primary">Meine Projekte</a>
+                        <a href="#contact" class="btn btn-secondary">Kontakt</a>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="code-window">
                         <div class="code-header">
-                            <span class="code-dot red"></span>
-                            <span class="code-dot yellow"></span>
-                            <span class="code-dot green"></span>
-                            <span class="code-filename">portfolio.js</span>
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="code-title">strategy.py</span>
                         </div>
-                        <pre class="code-content"><code><span class="code-keyword">const</span> <span class="code-var">developer</span> = {
-  <span class="code-prop">name</span>: <span class="code-string">"Dein Name"</span>,
-  <span class="code-prop">location</span>: <span class="code-string">"Deutschland"</span>,
-  <span class="code-prop">passion</span>: <span class="code-string">"Building great software"</span>,
-  
-  <span class="code-method">getSkills</span>() {
-    <span class="code-keyword">return</span> [<span class="code-string">"JavaScript"</span>, <span class="code-string">"Python"</span>, <span class="code-string">"React"</span>];
-  },
-  
-  <span class="code-method">isAvailable</span>() {
-    <span class="code-keyword">return</span> <span class="code-bool">true</span>;
-  }
-};</code></pre>
+                        <pre class="code-content"><code><span class="code-keyword">import</span> <span class="code-var">numpy</span> <span class="code-keyword">as</span> <span class="code-var">np</span>
+<span class="code-keyword">import</span> <span class="code-var">pandas</span> <span class="code-keyword">as</span> <span class="code-var">pd</span>
+<span class="code-keyword">from</span> <span class="code-var">scipy.stats</span> <span class="code-keyword">import</span> <span class="code-var">zscore</span>
+
+<span class="code-keyword">class</span> <span class="code-class">MomentumStrategy</span>:
+    <span class="code-keyword">def</span> <span class="code-method">__init__</span>(<span class="code-var">self</span>, <span class="code-var">lookback</span>=<span class="code-num">252</span>):
+        <span class="code-var">self</span>.<span class="code-prop">lookback</span> = lookback
+        <span class="code-var">self</span>.<span class="code-prop">risk_limit</span> = <span class="code-num">0.02</span>
+
+    <span class="code-keyword">def</span> <span class="code-method">generate_signals</span>(<span class="code-var">self</span>, <span class="code-var">prices</span>):
+        <span class="code-var">returns</span> = prices.<span class="code-method">pct_change</span>()
+        <span class="code-var">momentum</span> = returns.<span class="code-method">rolling</span>(<span class="code-var">self</span>.lookback).<span class="code-method">sum</span>()
+        <span class="code-keyword">return</span> <span class="code-method">zscore</span>(momentum.<span class="code-method">dropna</span>())</code></pre>
                     </div>
                 </div>
             </div>
@@ -118,37 +112,40 @@
                 <div class="about-grid">
                     <div class="about-text">
                         <p>
-                            Willkommen auf meiner Seite! Ich bin ein leidenschaftlicher Entwickler 
-                            mit einem Auge fürs Detail und einem Drang, Probleme elegant zu lösen.
+                            Willkommen! Ich bin Marcel-Philippe — aktuell Trainee im Bereich Finance & Risk 
+                            mit dem klaren Ziel, in die Welt des Quantitative Finance einzusteigen. 
+                            Mich fasziniert die Schnittstelle zwischen Finanzmärkten, Datenanalyse und 
+                            algorithmischer Entscheidungsfindung.
                         </p>
                         <p>
-                            Meine Reise in der Softwareentwicklung begann vor [X] Jahren, als ich 
-                            mein erstes "Hello World" schrieb. Seitdem habe ich mich kontinuierlich 
-                            weiterentwickelt und arbeite heute mit modernen Technologien an 
-                            spannenden Projekten.
+                            Ich arbeite daran, meine Fähigkeiten in statistischer Modellierung, 
+                            Python-Programmierung und quantitativen Methoden kontinuierlich auszubauen. 
+                            Mein Ziel: robuste, datengetriebene Handelsstrategien entwickeln und 
+                            komplexe Finanzprobleme mit analytischer Präzision lösen.
                         </p>
                         <p>
-                            Wenn ich nicht gerade Code schreibe, findest du mich [Hobbies/Interessen].
+                            Neben der Arbeit vertiefe ich mich in Backtesting-Frameworks, 
+                            Zeitreihenanalyse und Machine-Learning-Anwendungen für Finanzmärkte.
                         </p>
                         <div class="about-stats">
                             <div class="stat">
-                                <span class="stat-number" data-count="5">0</span>
-                                <span class="stat-label">Jahre Erfahrung</span>
+                                <span class="stat-number" data-count="3">0</span>
+                                <span class="stat-label">Quant-Projekte</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number" data-count="20">0</span>
-                                <span class="stat-label">Projekte</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number" data-count="10">0</span>
+                                <span class="stat-number" data-count="8">0</span>
                                 <span class="stat-label">Technologien</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="100">0</span><span class="stat-suffix">%</span>
+                                <span class="stat-label">Commitment</span>
                             </div>
                         </div>
                     </div>
                     <div class="about-image">
                         <div class="image-frame">
                             <div class="image-placeholder">
-                                <span>Dein Foto</span>
+                                <span>📊</span>
                             </div>
                             <div class="image-decoration"></div>
                         </div>
@@ -167,44 +164,44 @@
                 <div class="skills-container">
                     <div class="skill-category">
                         <h3 class="skill-category-title">
-                            <span class="category-icon">⚡</span>
-                            Frontend
+                            <span class="category-icon">📈</span>
+                            Quantitative Methods
                         </h3>
                         <div class="skill-tags">
-                            <span class="skill-tag" data-level="90">HTML5</span>
-                            <span class="skill-tag" data-level="85">CSS3 / SCSS</span>
-                            <span class="skill-tag" data-level="90">JavaScript</span>
-                            <span class="skill-tag" data-level="80">TypeScript</span>
-                            <span class="skill-tag" data-level="85">React</span>
-                            <span class="skill-tag" data-level="70">Vue.js</span>
+                            <span class="skill-tag" data-level="80">Statistical Modeling</span>
+                            <span class="skill-tag" data-level="75">Time Series Analysis</span>
+                            <span class="skill-tag" data-level="70">Risk Management</span>
+                            <span class="skill-tag" data-level="70">Portfolio Optimization</span>
+                            <span class="skill-tag" data-level="65">Backtesting</span>
+                            <span class="skill-tag" data-level="60">Factor Models</span>
                         </div>
                     </div>
                     <div class="skill-category">
                         <h3 class="skill-category-title">
-                            <span class="category-icon">🔧</span>
-                            Backend
+                            <span class="category-icon">💻</span>
+                            Programming & Data
                         </h3>
                         <div class="skill-tags">
-                            <span class="skill-tag" data-level="80">Node.js</span>
-                            <span class="skill-tag" data-level="75">Python</span>
-                            <span class="skill-tag" data-level="70">Express</span>
-                            <span class="skill-tag" data-level="65">PostgreSQL</span>
-                            <span class="skill-tag" data-level="70">MongoDB</span>
-                            <span class="skill-tag" data-level="60">GraphQL</span>
+                            <span class="skill-tag" data-level="80">Python</span>
+                            <span class="skill-tag" data-level="70">Pandas / NumPy</span>
+                            <span class="skill-tag" data-level="65">SQL</span>
+                            <span class="skill-tag" data-level="60">R</span>
+                            <span class="skill-tag" data-level="55">Scikit-Learn</span>
+                            <span class="skill-tag" data-level="50">VBA / Excel</span>
                         </div>
                     </div>
                     <div class="skill-category">
                         <h3 class="skill-category-title">
                             <span class="category-icon">🛠️</span>
-                            Tools & Mehr
+                            Tools & Platforms
                         </h3>
                         <div class="skill-tags">
-                            <span class="skill-tag" data-level="85">Git / GitHub</span>
-                            <span class="skill-tag" data-level="70">Docker</span>
-                            <span class="skill-tag" data-level="65">CI/CD</span>
-                            <span class="skill-tag" data-level="75">Linux</span>
-                            <span class="skill-tag" data-level="80">VS Code</span>
-                            <span class="skill-tag" data-level="60">AWS</span>
+                            <span class="skill-tag" data-level="75">Git / GitHub</span>
+                            <span class="skill-tag" data-level="70">Jupyter Notebooks</span>
+                            <span class="skill-tag" data-level="65">Bloomberg Terminal</span>
+                            <span class="skill-tag" data-level="60">VS Code</span>
+                            <span class="skill-tag" data-level="55">Linux CLI</span>
+                            <span class="skill-tag" data-level="50">Docker</span>
                         </div>
                     </div>
                 </div>
@@ -223,19 +220,19 @@
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 class="timeline-title">Senior Developer</h3>
-                                <span class="timeline-company">@ Firma XYZ</span>
+                                <h3 class="timeline-title">Trainee Finance & Risk</h3>
+                                <span class="timeline-company">@ Aktuelle Position</span>
                             </div>
-                            <span class="timeline-date">2023 - Heute</span>
+                            <span class="timeline-date">2024 - Heute</span>
                             <ul class="timeline-list">
-                                <li>Entwicklung und Wartung von Webanwendungen mit React und Node.js</li>
-                                <li>Implementierung von RESTful APIs und Datenbankdesign</li>
-                                <li>Code Reviews und Mentoring von Junior Entwicklern</li>
+                                <li>Analyse von Finanzdaten und Risikokennzahlen für Investmententscheidungen</li>
+                                <li>Unterstützung bei der Entwicklung von Risikomodellen und Reporting-Prozessen</li>
+                                <li>Erste Erfahrungen mit quantitativen Analysemethoden im praktischen Einsatz</li>
                             </ul>
                             <div class="timeline-tags">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>PostgreSQL</span>
+                                <span>Risk Analysis</span>
+                                <span>Financial Modeling</span>
+                                <span>Excel / VBA</span>
                             </div>
                         </div>
                     </div>
@@ -243,39 +240,19 @@
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <h3 class="timeline-title">Web Developer</h3>
-                                <span class="timeline-company">@ Agentur ABC</span>
+                                <h3 class="timeline-title">Studium / Ausbildung</h3>
+                                <span class="timeline-company">@ Finance / Economics</span>
                             </div>
-                            <span class="timeline-date">2021 - 2023</span>
+                            <span class="timeline-date">vor 2024</span>
                             <ul class="timeline-list">
-                                <li>Erstellung von responsiven Websites für diverse Kunden</li>
-                                <li>Integration von CMS-Systemen und E-Commerce-Lösungen</li>
-                                <li>Performance-Optimierung und SEO-Maßnahmen</li>
+                                <li>Fundierte Grundlagen in Finanztheorie, Statistik und Ökonometrie</li>
+                                <li>Selbststudium in Python, quantitativen Methoden und Algorithmik</li>
+                                <li>Erste eigene Projekte im Bereich Backtesting und Datenanalyse</li>
                             </ul>
                             <div class="timeline-tags">
-                                <span>JavaScript</span>
-                                <span>WordPress</span>
-                                <span>Shopify</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-title">Junior Developer</h3>
-                                <span class="timeline-company">@ Startup DEF</span>
-                            </div>
-                            <span class="timeline-date">2019 - 2021</span>
-                            <ul class="timeline-list">
-                                <li>Mitarbeit an der Entwicklung einer SaaS-Plattform</li>
-                                <li>Frontend-Entwicklung mit Vue.js</li>
-                                <li>Agile Entwicklung im Scrum-Team</li>
-                            </ul>
-                            <div class="timeline-tags">
-                                <span>Vue.js</span>
-                                <span>Firebase</span>
-                                <span>Scrum</span>
+                                <span>Finance Theory</span>
+                                <span>Statistics</span>
+                                <span>Python</span>
                             </div>
                         </div>
                     </div>
@@ -294,7 +271,7 @@
                     <article class="project-card featured">
                         <div class="project-image">
                             <div class="project-placeholder">
-                                <span>Screenshot</span>
+                                <span>📊</span>
                             </div>
                             <div class="project-overlay">
                                 <a href="#" class="project-link" aria-label="Projekt ansehen">
@@ -304,7 +281,7 @@
                                         <line x1="10" y1="14" x2="21" y2="3"/>
                                     </svg>
                                 </a>
-                                <a href="#" class="project-link" aria-label="GitHub Repository">
+                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="GitHub Repository">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
                                     </svg>
@@ -313,86 +290,91 @@
                         </div>
                         <div class="project-content">
                             <span class="project-label">Featured Project</span>
-                            <h3 class="project-title">Projekt Name</h3>
+                            <h3 class="project-title">Momentum Backtesting Framework</h3>
                             <p class="project-description">
-                                Eine kurze Beschreibung des Projekts. Was macht es? Welches Problem löst es? 
-                                Was waren die besonderen Herausforderungen?
-                            </p>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>MongoDB</span>
-                                <span>Docker</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>Screenshot</span>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="#" class="project-link" aria-label="Projekt ansehen">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                        <polyline points="15 3 21 3 21 9"/>
-                                        <line x1="10" y1="14" x2="21" y2="3"/>
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link" aria-label="GitHub Repository">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Projekt Zwei</h3>
-                            <p class="project-description">
-                                Beschreibung des zweiten Projekts mit den wichtigsten Features und Technologien.
-                            </p>
-                            <div class="project-tech">
-                                <span>Vue.js</span>
-                                <span>Firebase</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>Screenshot</span>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="#" class="project-link" aria-label="Projekt ansehen">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                        <polyline points="15 3 21 3 21 9"/>
-                                        <line x1="10" y1="14" x2="21" y2="3"/>
-                                    </svg>
-                                </a>
-                                <a href="#" class="project-link" aria-label="GitHub Repository">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Projekt Drei</h3>
-                            <p class="project-description">
-                                Noch ein spannendes Projekt mit interessanten technischen Details.
+                                Ein Python-basiertes Backtesting-Framework für Momentum-Strategien. 
+                                Implementiert Cross-Sectional Momentum, Risikomanagement via 
+                                Position Sizing und Performance-Attribution.
                             </p>
                             <div class="project-tech">
                                 <span>Python</span>
-                                <span>FastAPI</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                                <span>Matplotlib</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span>📉</span>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="#" class="project-link" aria-label="Projekt ansehen">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="GitHub Repository">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Portfolio Risk Dashboard</h3>
+                            <p class="project-description">
+                                Interaktives Dashboard zur Visualisierung von Portfolio-Risikokennzahlen: 
+                                VaR, Expected Shortfall, Korrelationsmatrizen und Drawdown-Analyse.
+                            </p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>Streamlit</span>
+                                <span>Plotly</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <span>🤖</span>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="#" class="project-link" aria-label="Projekt ansehen">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="GitHub Repository">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">ML Price Prediction</h3>
+                            <p class="project-description">
+                                Experimente mit Machine-Learning-Modellen zur Preisprognose: 
+                                Feature Engineering, Cross-Validation und Ensemble-Methoden.
+                            </p>
+                            <div class="project-tech">
+                                <span>Scikit-Learn</span>
+                                <span>XGBoost</span>
+                                <span>Jupyter</span>
                             </div>
                         </div>
                     </article>
                 </div>
                 <div class="projects-more">
-                    <a href="https://github.com/DEIN-USERNAME" class="btn btn-secondary" target="_blank" rel="noopener">
+                    <a href="https://github.com/Marcel-Metzger" class="btn btn-secondary" target="_blank" rel="noopener">
                         Mehr auf GitHub
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -413,28 +395,28 @@
                 </h2>
                 <div class="contact-content">
                     <div class="contact-text">
-                        <h3 class="contact-heading">Lass uns zusammenarbeiten!</h3>
+                        <h3 class="contact-heading">Let's connect!</h3>
                         <p>
-                            Ich bin immer offen für neue Herausforderungen und spannende Projekte. 
-                            Ob du eine Frage hast, ein Projekt besprechen möchtest oder einfach 
-                            nur Hallo sagen willst – ich freue mich von dir zu hören!
+                            Ich bin immer offen für Gespräche über Quantitative Finance, 
+                            spannende Projekte oder Karrieremöglichkeiten im Bereich 
+                            Quant Research und Trading. Schreib mir gerne!
                         </p>
                     </div>
                     <div class="contact-links">
-                        <a href="mailto:deine@email.de" class="contact-item">
+                        <a href="mailto:contact@marcel-metzger.com" class="contact-item">
                             <span class="contact-icon">📧</span>
                             <span class="contact-label">E-Mail</span>
-                            <span class="contact-value">deine@email.de</span>
+                            <span class="contact-value">contact@marcel-metzger.com</span>
                         </a>
-                        <a href="https://linkedin.com/in/DEIN-PROFIL" target="_blank" rel="noopener" class="contact-item">
+                        <a href="https://de.linkedin.com/in/marcel-philippe-metzger" target="_blank" rel="noopener" class="contact-item">
                             <span class="contact-icon">💼</span>
                             <span class="contact-label">LinkedIn</span>
                             <span class="contact-value">Profil ansehen</span>
                         </a>
-                        <a href="https://github.com/DEIN-USERNAME" target="_blank" rel="noopener" class="contact-item">
+                        <a href="https://github.com/Marcel-Metzger" target="_blank" rel="noopener" class="contact-item">
                             <span class="contact-icon">🐙</span>
                             <span class="contact-label">GitHub</span>
-                            <span class="contact-value">@DEIN-USERNAME</span>
+                            <span class="contact-value">@Marcel-Metzger</span>
                         </a>
                     </div>
                 </div>
@@ -446,10 +428,10 @@
     <footer class="footer">
         <div class="footer-content">
             <p class="footer-text">
-                Designed & Built by <span class="footer-name">Dein Name</span>
+                Designed & Built by <span class="footer-name">Marcel-Philippe Metzger</span>
             </p>
             <p class="footer-credits">
-                Made with ☕ and curiosity
+                Made with ☕ and data
             </p>
         </div>
     </footer>

@@ -1,34 +1,34 @@
 /**
- * DEV PORTFOLIO - Interactive JavaScript
+ * QUANT PORTFOLIO - Interactive JavaScript
  * Smooth animations, typewriter effect, and theme switching
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all modules
     initNavigation();
     initThemeToggle();
     initTypewriter();
     initScrollReveal();
     initCounterAnimation();
     initSmoothScroll();
+    initActiveNav();
+    
+    // Console easter egg
+    console.log('%c📈 Built with data & curiosity', 'font-size: 14px; color: #64ffda;');
 });
 
 /**
  * Navigation Scroll Effect & Mobile Menu
  */
 function initNavigation() {
-    const nav = document.getElementById('nav');
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const nav = document.querySelector('.nav');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
     
-    // Scroll effect for navigation
     let lastScroll = 0;
     
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
-        // Add scrolled class for background
         if (currentScroll > 50) {
             nav.classList.add('scrolled');
         } else {
@@ -38,18 +38,16 @@ function initNavigation() {
         lastScroll = currentScroll;
     });
     
-    // Mobile menu toggle
     navToggle?.addEventListener('click', () => {
         navToggle.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     });
     
-    // Close mobile menu when clicking links
-    mobileLinks.forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            mobileMenu.classList.remove('active');
+            navToggle?.classList.remove('active');
+            navMenu?.classList.remove('active');
             document.body.style.overflow = '';
         });
     });
@@ -59,13 +57,14 @@ function initNavigation() {
  * Theme Toggle (Dark/Light Mode)
  */
 function initThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
+    const themeToggle = document.querySelector('.theme-toggle');
     const themeIcon = themeToggle?.querySelector('.theme-icon');
     
-    // Check for saved theme preference or default to dark
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(themeIcon, savedTheme);
+    if (themeIcon) {
+        themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+    }
     
     themeToggle?.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -73,29 +72,25 @@ function initThemeToggle() {
         
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
-        updateThemeIcon(themeIcon, newTheme);
+        
+        if (themeIcon) {
+            themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        }
     });
-}
-
-function updateThemeIcon(icon, theme) {
-    if (icon) {
-        icon.textContent = theme === 'dark' ? '◐' : '◑';
-    }
 }
 
 /**
  * Typewriter Effect for Hero Title
  */
 function initTypewriter() {
-    const element = document.getElementById('typewriter');
+    const element = document.querySelector('.typewriter');
     if (!element) return;
     
     const titles = [
-        'Software Developer',
-        'Web Enthusiast',
-        'Problem Solver',
-        'Code Craftsman',
-        'Tech Explorer'
+        'Aspiring Quant Researcher',
+        'Data-Driven Analyst',
+        'Finance & Risk Professional',
+        'Algorithmic Thinker'
     ];
     
     let titleIndex = 0;
@@ -139,15 +134,14 @@ function initTypewriter() {
         }
     }
     
-    // Start typing after a short delay
-    setTimeout(type, 1000);
+    type();
 }
 
 /**
  * Scroll Reveal Animation
  */
 function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.section, .timeline-item, .project-card, .skill-category');
+    const revealElements = document.querySelectorAll('.section, .project-card, .timeline-item, .skill-category');
     
     const revealOptions = {
         threshold: 0.1,
@@ -158,16 +152,13 @@ function initScrollReveal() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                revealObserver.unobserve(entry.target);
             }
         });
     }, revealOptions);
     
-    revealElements.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    revealElements.forEach(el => {
+        el.classList.add('reveal');
         revealObserver.observe(el);
     });
 }
@@ -184,12 +175,11 @@ function initCounterAnimation() {
                 const counter = entry.target;
                 const target = parseInt(counter.getAttribute('data-count'));
                 const duration = 2000;
-                const steps = 60;
-                const increment = target / steps;
+                const step = target / (duration / 16);
                 let current = 0;
                 
                 const updateCounter = () => {
-                    current += increment;
+                    current += step;
                     if (current < target) {
                         counter.textContent = Math.floor(current);
                         requestAnimationFrame(updateCounter);
@@ -215,10 +205,9 @@ function initSmoothScroll() {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
-            
             if (target) {
-                const navHeight = document.getElementById('nav').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                const navHeight = document.querySelector('.nav').offsetHeight;
+                const targetPosition = target.offsetTop - navHeight - 20;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -230,15 +219,15 @@ function initSmoothScroll() {
 }
 
 /**
- * Active Navigation Link Highlight
+ * Active Navigation Link Highlighting
  */
-function initActiveNavLink() {
+function initActiveNav() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     
     window.addEventListener('scroll', () => {
         let current = '';
-        const navHeight = document.getElementById('nav').offsetHeight;
+        const navHeight = document.querySelector('.nav').offsetHeight;
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop - navHeight - 100;
@@ -255,43 +244,5 @@ function initActiveNavLink() {
                 link.classList.add('active');
             }
         });
-    });
-}
-
-// Initialize active nav link on load
-document.addEventListener('DOMContentLoaded', initActiveNavLink);
-
-/**
- * Skill Tag Hover Effect with Level Display
- */
-document.querySelectorAll('.skill-tag').forEach(tag => {
-    tag.addEventListener('mouseenter', function() {
-        const level = this.getAttribute('data-level');
-        if (level) {
-            this.setAttribute('data-tooltip', `${level}%`);
-        }
-    });
-});
-
-/**
- * Console Easter Egg
- */
-console.log(`
-%c╔═══════════════════════════════════════╗
-║                                       ║
-║   👋 Hey there, curious developer!    ║
-║                                       ║
-║   Thanks for checking out my code.    ║
-║   Feel free to explore!               ║
-║                                       ║
-╚═══════════════════════════════════════╝
-`, 'color: #6366f1; font-family: monospace; font-size: 12px;');
-
-/**
- * Performance: Defer non-critical operations
- */
-if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-        // Add any non-critical initializations here
     });
 }
