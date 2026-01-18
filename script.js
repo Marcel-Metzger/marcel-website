@@ -213,40 +213,33 @@ function initSocialBar() {
     
     if (!socialBar || !footer) return;
     
-    let ticking = false;
-    let currentBottom = 0;
-    let targetBottom = 0;
-    
-    function smoothUpdate() {
-        // Smooth interpolation
-        currentBottom += (targetBottom - currentBottom) * 0.15;
-        
-        // Apply if difference is noticeable
-        if (Math.abs(targetBottom - currentBottom) > 0.5) {
-            socialBar.style.bottom = Math.round(currentBottom) + 'px';
-            requestAnimationFrame(smoothUpdate);
-        } else {
-            socialBar.style.bottom = targetBottom + 'px';
-        }
-    }
+    // CSS handles the smooth transition
+    socialBar.style.transition = 'bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
     
     function updatePosition() {
         const footerRect = footer.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         
         if (footerRect.top < windowHeight) {
-            targetBottom = windowHeight - footerRect.top;
+            const overlap = windowHeight - footerRect.top;
+            socialBar.style.bottom = overlap + 'px';
         } else {
-            targetBottom = 0;
-        }
-        
-        if (!ticking) {
-            requestAnimationFrame(smoothUpdate);
-            ticking = true;
-            setTimeout(() => { ticking = false; }, 16);
+            socialBar.style.bottom = '0px';
         }
     }
     
-    window.addEventListener('scroll', updatePosition, { passive: true });
+    // Use requestAnimationFrame for smooth scroll handling
+    let rafId = null;
+    window.addEventListener('scroll', () => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+            updatePosition();
+            rafId = null;
+        });
+    }, { passive: true });
+    
     window.addEventListener('resize', updatePosition, { passive: true });
+    
+    // Initial position
+    updatePosition();
 }

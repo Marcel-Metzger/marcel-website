@@ -38,11 +38,16 @@
 }
 
 [data-theme="light"] .code-keyword {
-    color: #c586c0;
+    color: #7c3aed;
+}
+
+[data-theme="light"] .code-window {
+    background: #ffffff;
+    border: 1px solid var(--border);
 }
 
 [data-theme="light"] .code-content {
-    background: #1e1e1e;
+    background: #f8fafc;
 }
 
 /* Reset & Base */
@@ -1172,7 +1177,7 @@ img {
 }
 
 /* Hide floating bar on smaller screens to prevent text overlap */
-@media (max-width: 1350px) {
+@media (max-width: 1450px) {
     .social-bar {
         display: none;
     }
