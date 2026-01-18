@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounterAnimation();
     initSmoothScroll();
     initActiveNav();
+    initSocialBar();
     
     console.log('%c📈 Built with data & curiosity', 'font-size: 14px; color: #8b5cf6;');
 });
@@ -203,5 +204,29 @@ function initActiveNav() {
                 link.classList.add('active');
             }
         });
+    });
+}
+
+function initSocialBar() {
+    const socialBar = document.querySelector('.social-bar');
+    const footer = document.querySelector('.footer');
+    
+    if (!socialBar || !footer) return;
+    
+    // Get the height of the social bar
+    const socialBarHeight = socialBar.offsetHeight;
+    
+    window.addEventListener('scroll', () => {
+        const footerRect = footer.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Check if footer is visible
+        if (footerRect.top < windowHeight) {
+            // Calculate how much the footer is in view
+            const overlap = windowHeight - footerRect.top;
+            socialBar.style.bottom = overlap + 'px';
+        } else {
+            socialBar.style.bottom = '0px';
+        }
     });
 }
