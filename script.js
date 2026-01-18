@@ -72,7 +72,6 @@ function initTypewriter() {
     
     const titles = [
         'Finance & Risk Trainee',
-        'Aspiring Quant Researcher',
         'Data-Driven Analyst',
         'Quantitative Finance Enthusiast',
         'Algorithmic Thinker'
@@ -213,28 +212,21 @@ function initSocialBar() {
     
     if (!socialBar || !footer) return;
     
-    let isLockedToFooter = false;
-    let lockedPosition = 0;
+    // Get the footer's top border line position
+    const getFooterTopPosition = () => {
+        return footer.offsetTop;
+    };
+    
+    let footerTop = getFooterTopPosition();
     
     function updatePosition() {
-        const footerRect = footer.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const footerVisible = footerRect.top < windowHeight;
+        const scrollBottom = window.scrollY + window.innerHeight;
         
-        if (footerVisible) {
-            // Footer is visible - lock the bar to the footer
-            if (!isLockedToFooter) {
-                // First time reaching footer - lock position
-                isLockedToFooter = true;
-                lockedPosition = windowHeight - footerRect.top;
-            }
-            // Keep the locked position (no recalculation while at footer)
-            socialBar.style.bottom = lockedPosition + 'px';
+        if (scrollBottom >= footerTop) {
+            // We've reached the footer - stop at the footer line
+            const overlap = scrollBottom - footerTop;
+            socialBar.style.bottom = overlap + 'px';
         } else {
-            // Footer not visible - release the lock
-            if (isLockedToFooter) {
-                isLockedToFooter = false;
-            }
             socialBar.style.bottom = '0px';
         }
     }
@@ -252,7 +244,7 @@ function initSocialBar() {
     }, { passive: true });
     
     window.addEventListener('resize', () => {
-        isLockedToFooter = false; // Reset lock on resize
+        footerTop = getFooterTopPosition(); // Recalculate footer position on resize
         updatePosition();
     }, { passive: true });
     
