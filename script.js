@@ -221,7 +221,7 @@ function initSocialBar() {
         
         // Start fading even earlier and complete faster
         const fadeStart = windowHeight + 400; // Start fading 400px before contact is visible
-        const fadeEnd = windowHeight; // Fully hidden when contact reaches bottom of viewport
+        const fadeEnd = windowHeight - 100; // Fully hidden 100px after contact enters viewport
         
         if (contactRect.top <= fadeStart && contactRect.top >= fadeEnd) {
             // In fade range - calculate opacity
