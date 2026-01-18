@@ -219,10 +219,10 @@ function initSocialBar() {
         const contactRect = contactSection.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         
-        // Start fading when contact section enters viewport
-        // Fade range: from when contact top is at bottom of screen to when it's 70% up
-        const fadeStart = windowHeight; // Contact top at bottom of viewport
-        const fadeEnd = windowHeight * 0.3; // Contact top at 30% from top
+        // Start fading earlier - when contact section is still below viewport
+        // Fade range: from 200px before contact enters to when contact top reaches 80% of viewport
+        const fadeStart = windowHeight + 200; // Start fading before contact is visible
+        const fadeEnd = windowHeight * 0.8; // Fully hidden when contact top is at 80% from top
         
         if (contactRect.top <= fadeStart && contactRect.top >= fadeEnd) {
             // In fade range - calculate opacity
