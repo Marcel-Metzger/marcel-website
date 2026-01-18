@@ -208,26 +208,33 @@ function initActiveNav() {
 
 function initSocialBar() {
     const socialBar = document.querySelector('.social-bar');
-    const footer = document.querySelector('.footer');
+    const contactSection = document.getElementById('contact');
     
-    if (!socialBar || !footer) return;
+    if (!socialBar || !contactSection) return;
     
-    // Get the footer's top border line position
-    const getFooterTopPosition = () => {
-        return footer.offsetTop;
-    };
+    // Set up smooth opacity transition
+    socialBar.style.transition = 'opacity 0.3s ease';
     
-    let footerTop = getFooterTopPosition();
-    
-    function updatePosition() {
-        const scrollBottom = window.scrollY + window.innerHeight;
+    function updateVisibility() {
+        const contactRect = contactSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
         
-        if (scrollBottom >= footerTop) {
-            // We've reached the footer - stop at the footer line
-            const overlap = scrollBottom - footerTop;
-            socialBar.style.bottom = overlap + 'px';
+        // Start fading when contact section enters viewport
+        // Fade range: from when contact top is at bottom of screen to when it's 70% up
+        const fadeStart = windowHeight; // Contact top at bottom of viewport
+        const fadeEnd = windowHeight * 0.3; // Contact top at 30% from top
+        
+        if (contactRect.top <= fadeStart && contactRect.top >= fadeEnd) {
+            // In fade range - calculate opacity
+            const progress = (fadeStart - contactRect.top) / (fadeStart - fadeEnd);
+            const opacity = 1 - progress;
+            socialBar.style.opacity = Math.max(0, Math.min(1, opacity));
+        } else if (contactRect.top < fadeEnd) {
+            // Past fade range - fully hidden
+            socialBar.style.opacity = '0';
         } else {
-            socialBar.style.bottom = '0px';
+            // Before fade range - fully visible
+            socialBar.style.opacity = '1';
         }
     }
     
@@ -236,18 +243,13 @@ function initSocialBar() {
     window.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(() => {
-                updatePosition();
+                updateVisibility();
                 ticking = false;
             });
             ticking = true;
         }
     }, { passive: true });
     
-    window.addEventListener('resize', () => {
-        footerTop = getFooterTopPosition(); // Recalculate footer position on resize
-        updatePosition();
-    }, { passive: true });
-    
-    // Initial position
-    updatePosition();
+    // Initial state
+    updateVisibility();
 }
