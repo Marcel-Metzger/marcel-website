@@ -213,32 +213,48 @@ function initSocialBar() {
     
     if (!socialBar || !footer) return;
     
-    // CSS handles the smooth transition
-    socialBar.style.transition = 'bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    let isLockedToFooter = false;
+    let lockedPosition = 0;
     
     function updatePosition() {
         const footerRect = footer.getBoundingClientRect();
         const windowHeight = window.innerHeight;
+        const footerVisible = footerRect.top < windowHeight;
         
-        if (footerRect.top < windowHeight) {
-            const overlap = windowHeight - footerRect.top;
-            socialBar.style.bottom = overlap + 'px';
+        if (footerVisible) {
+            // Footer is visible - lock the bar to the footer
+            if (!isLockedToFooter) {
+                // First time reaching footer - lock position
+                isLockedToFooter = true;
+                lockedPosition = windowHeight - footerRect.top;
+            }
+            // Keep the locked position (no recalculation while at footer)
+            socialBar.style.bottom = lockedPosition + 'px';
         } else {
+            // Footer not visible - release the lock
+            if (isLockedToFooter) {
+                isLockedToFooter = false;
+            }
             socialBar.style.bottom = '0px';
         }
     }
     
-    // Use requestAnimationFrame for smooth scroll handling
-    let rafId = null;
+    // Throttle scroll events
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        if (rafId) return;
-        rafId = requestAnimationFrame(() => {
-            updatePosition();
-            rafId = null;
-        });
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                updatePosition();
+                ticking = false;
+            });
+            ticking = true;
+        }
     }, { passive: true });
     
-    window.addEventListener('resize', updatePosition, { passive: true });
+    window.addEventListener('resize', () => {
+        isLockedToFooter = false; // Reset lock on resize
+        updatePosition();
+    }, { passive: true });
     
     // Initial position
     updatePosition();

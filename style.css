@@ -238,12 +238,15 @@ img {
         padding-top: 0;
         gap: 32px;
         transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        visibility: hidden;
+        transition: none;
         z-index: 10000;
     }
 
     .nav-menu.active {
         transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.3s ease;
     }
 
     [data-theme="light"] .nav-menu {
