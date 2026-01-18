@@ -213,20 +213,40 @@ function initSocialBar() {
     
     if (!socialBar || !footer) return;
     
-    // Get the height of the social bar
-    const socialBarHeight = socialBar.offsetHeight;
+    let ticking = false;
+    let currentBottom = 0;
+    let targetBottom = 0;
     
-    window.addEventListener('scroll', () => {
+    function smoothUpdate() {
+        // Smooth interpolation
+        currentBottom += (targetBottom - currentBottom) * 0.15;
+        
+        // Apply if difference is noticeable
+        if (Math.abs(targetBottom - currentBottom) > 0.5) {
+            socialBar.style.bottom = Math.round(currentBottom) + 'px';
+            requestAnimationFrame(smoothUpdate);
+        } else {
+            socialBar.style.bottom = targetBottom + 'px';
+        }
+    }
+    
+    function updatePosition() {
         const footerRect = footer.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         
-        // Check if footer is visible
         if (footerRect.top < windowHeight) {
-            // Calculate how much the footer is in view
-            const overlap = windowHeight - footerRect.top;
-            socialBar.style.bottom = overlap + 'px';
+            targetBottom = windowHeight - footerRect.top;
         } else {
-            socialBar.style.bottom = '0px';
+            targetBottom = 0;
         }
-    });
+        
+        if (!ticking) {
+            requestAnimationFrame(smoothUpdate);
+            ticking = true;
+            setTimeout(() => { ticking = false; }, 16);
+        }
+    }
+    
+    window.addEventListener('scroll', updatePosition, { passive: true });
+    window.addEventListener('resize', updatePosition, { passive: true });
 }
