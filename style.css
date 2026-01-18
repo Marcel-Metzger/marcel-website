@@ -1089,3 +1089,61 @@ img {
     color: var(--text-muted);
     font-size: 0.85rem;
 }
+
+/* =======================================
+   FLOATING SOCIAL BAR
+   ======================================= */
+.social-bar {
+    position: fixed;
+    left: 32px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 100;
+}
+
+.social-link {
+    color: var(--text-muted);
+    transition: var(--transition);
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link:hover {
+    color: var(--accent-primary);
+    transform: translateY(-3px);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-line {
+    width: 1px;
+    height: 90px;
+    background: var(--text-muted);
+    opacity: 0.4;
+}
+
+/* Hide floating bar on mobile */
+@media (max-width: 768px) {
+    .social-bar {
+        display: none;
+    }
+}
+
+/* Contact icon styles for SVG */
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon svg {
+    color: var(--accent-primary);
+}
