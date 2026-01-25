@@ -142,7 +142,9 @@ function initCounterAnimation() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-count'));
+                const dataCount = counter.getAttribute('data-count');
+                const target = parseInt(dataCount);
+                const suffix = dataCount.replace(/[0-9]/g, '');
                 const duration = 2000;
                 const step = target / (duration / 16);
                 let current = 0;
@@ -153,7 +155,7 @@ function initCounterAnimation() {
                         counter.textContent = Math.floor(current);
                         requestAnimationFrame(update);
                     } else {
-                        counter.textContent = target;
+                        counter.textContent = target + suffix;
                     }
                 };
                 

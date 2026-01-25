@@ -374,7 +374,7 @@ img {
 .hero-description {
     color: var(--text-secondary);
     font-size: 1.1rem;
-    max-width: 650px;
+    max-width: 700px;
     margin-bottom: 32px;
     line-height: 1.7;
 }
@@ -433,7 +433,7 @@ img {
     border: 1px solid var(--border);
     overflow: hidden;
     width: 100%;
-    max-width: 650px;
+    max-width: 700px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
@@ -1180,7 +1180,7 @@ img {
 }
 
 /* Hide floating bar on smaller screens to prevent text overlap */
-@media (max-width: 1520px) {
+@media (max-width: 1580px) {
     .social-bar {
         display: none;
     }
