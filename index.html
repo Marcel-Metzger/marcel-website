@@ -93,21 +93,21 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <span class="code-title">signal_net.py</span>
+                            <span class="code-title">market_signal.py</span>
                         </div>
                         <pre class="code-content"><code><span class="code-keyword">import</span> torch.nn <span class="code-keyword">as</span> nn
 
-<span class="code-keyword">class</span> <span class="code-class">MarketSignalNet</span>(nn.Module):
-    <span class="code-keyword">def</span> <span class="code-method">__init__</span>(self, input_dim=<span class="code-num">5</span>):
+<span class="code-keyword">class</span> <span class="code-class">MarketSignal</span>(nn.Module):
+    <span class="code-keyword">def</span> <span class="code-method">__init__</span>(self, dim=<span class="code-num">64</span>):
         <span class="code-builtin">super</span>().__init__()
-        self.lstm = nn.LSTM(input_dim, <span class="code-num">64</span>, batch_first=<span class="code-num">True</span>)
-        self.attention = nn.MultiheadAttention(<span class="code-num">64</span>, <span class="code-num">4</span>)
-        self.fc = nn.Linear(<span class="code-num">64</span>, <span class="code-num">1</span>)
+        self.encoder = nn.LSTM(dim, dim)
+        self.attn = nn.MultiheadAttention(dim, <span class="code-num">4</span>)
+        self.head = nn.Linear(dim, <span class="code-num">1</span>)
 
     <span class="code-keyword">def</span> <span class="code-method">forward</span>(self, x):
-        encoded, _ = self.lstm(x)
-        attended, _ = self.attention(encoded, encoded, encoded)
-        <span class="code-keyword">return</span> torch.sigmoid(self.fc(attended[:, -<span class="code-num">1</span>]))
+        h, _ = self.encoder(x)
+        out, _ = self.attn(h, h, h)
+        <span class="code-keyword">return</span> torch.sigmoid(self.head(out[:, -<span class="code-num">1</span>]))
 
 <span class="code-comment"># >>> model.predict(asset='MPM')</span>
 <span class="code-comment"># {'confidence': 1.00, 'signal': 'STRONG_BUY'}</span></code></pre>
