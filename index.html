@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 </head>
 <body>
     <!-- Navigation -->
@@ -93,21 +93,24 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <span class="code-title">strategy.py</span>
+                            <span class="code-title">signal_net.py</span>
                         </div>
-                        <pre class="code-content"><code><span class="code-keyword">import</span> numpy <span class="code-keyword">as</span> np
-<span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
-<span class="code-keyword">from</span> scipy.stats <span class="code-keyword">import</span> zscore
+                        <pre class="code-content"><code><span class="code-keyword">import</span> torch.nn <span class="code-keyword">as</span> nn
 
-<span class="code-keyword">class</span> <span class="code-class">MomentumStrategy</span>:
-    <span class="code-keyword">def</span> <span class="code-method">__init__</span>(self, lookback=<span class="code-num">252</span>):
-        self.lookback = lookback
-        self.risk_limit = <span class="code-num">0.02</span>
+<span class="code-keyword">class</span> <span class="code-class">MarketSignalNet</span>(nn.Module):
+    <span class="code-keyword">def</span> <span class="code-method">__init__</span>(self, input_dim=<span class="code-num">5</span>):
+        <span class="code-builtin">super</span>().__init__()
+        self.lstm = nn.LSTM(input_dim, <span class="code-num">64</span>, batch_first=<span class="code-num">True</span>)
+        self.attention = nn.MultiheadAttention(<span class="code-num">64</span>, <span class="code-num">4</span>)
+        self.fc = nn.Linear(<span class="code-num">64</span>, <span class="code-num">1</span>)
 
-    <span class="code-keyword">def</span> <span class="code-method">generate_signals</span>(self, prices):
-        returns = prices.pct_change()
-        momentum = returns.rolling(self.lookback).sum()
-        <span class="code-keyword">return</span> zscore(momentum.dropna())</code></pre>
+    <span class="code-keyword">def</span> <span class="code-method">forward</span>(self, x):
+        encoded, _ = self.lstm(x)
+        attended, _ = self.attention(encoded, encoded, encoded)
+        <span class="code-keyword">return</span> torch.sigmoid(self.fc(attended[:, -<span class="code-num">1</span>]))
+
+<span class="code-comment"># >>> model.predict(asset='MPM')</span>
+<span class="code-comment"># {'confidence': 1.00, 'signal': 'STRONG_BUY'}</span></code></pre>
                     </div>
                 </div>
             </div>
