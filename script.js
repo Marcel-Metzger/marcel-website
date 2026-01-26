@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initActiveNav();
     initSocialBar();
     
-    console.log('%c📈 Built with data & curiosity', 'font-size: 14px; color: #8b5cf6;');
 });
 
 function initNavigation() {
@@ -222,19 +221,16 @@ function initSocialBar() {
         const windowHeight = window.innerHeight;
         
         // Start fading even earlier and complete faster
-        const fadeStart = windowHeight + 400; // Start fading 400px before contact is visible
-        const fadeEnd = windowHeight - 100; // Fully hidden 100px after contact enters viewport
+        const fadeStart = windowHeight + 400;
+        const fadeEnd = windowHeight - 100;
         
         if (contactRect.top <= fadeStart && contactRect.top >= fadeEnd) {
-            // In fade range - calculate opacity
             const progress = (fadeStart - contactRect.top) / (fadeStart - fadeEnd);
             const opacity = 1 - progress;
             socialBar.style.opacity = Math.max(0, Math.min(1, opacity));
         } else if (contactRect.top < fadeEnd) {
-            // Past fade range - fully hidden
             socialBar.style.opacity = '0';
         } else {
-            // Before fade range - fully visible
             socialBar.style.opacity = '1';
         }
     }
