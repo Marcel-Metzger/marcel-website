@@ -1283,9 +1283,10 @@ img {
 }
 
 .research-note.secondary {
+    background: var(--bg-secondary);
     background: transparent;
     border: 1px dashed var(--border);
-    opacity: 0.85;
+    opacity: 0.9;
     font-size: 0.8rem;
     padding: 10px 14px;
 }
