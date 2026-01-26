@@ -1312,3 +1312,10 @@ img {
 .research-note + .timeline-tags {
     margin-top: 20px;
 }
+
+/* Make secondary research note more visible */
+.research-note.secondary {
+    background: var(--bg-tertiary) !important;
+    border: 1px solid var(--border) !important;
+    opacity: 1 !important;
+}
