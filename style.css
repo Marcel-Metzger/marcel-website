@@ -1319,3 +1319,119 @@ img {
     border: 1px solid var(--border) !important;
     opacity: 1 !important;
 }
+
+/* =======================
+   NEW PROJECTS SECTION - Full Width Cards
+   ======================= */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.project-card-full {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    transition: var(--transition);
+}
+
+[data-theme="light"] .project-card-full {
+    background: var(--bg-tertiary);
+}
+
+.project-card-full:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-card-full .project-content {
+    flex: 1;
+}
+
+.project-card-full .project-label {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-card-full .project-title {
+    font-size: 1.5rem;
+    margin: 12px 0 16px;
+}
+
+.project-card-full .project-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.project-card-full .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.project-card-full .project-tech span {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    background: var(--accent-glow);
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+}
+
+.project-links {
+    display: flex;
+    align-items: center;
+}
+
+.project-card-full .project-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--accent);
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.project-card-full .project-link:hover {
+    background: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+.project-card-full .project-link svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 768px) {
+    .project-card-full {
+        flex-direction: column;
+        padding: 24px;
+    }
+    
+    .project-links {
+        width: 100%;
+    }
+    
+    .project-card-full .project-link {
+        width: 100%;
+        justify-content: center;
+    }
+}

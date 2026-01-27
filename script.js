@@ -213,14 +213,14 @@ function initSocialBar() {
     
     if (!socialBar || !contactSection) return;
     
-    // Set up smooth opacity transition
+
     socialBar.style.transition = 'opacity 0.3s ease';
     
     function updateVisibility() {
         const contactRect = contactSection.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         
-        // Start fading even earlier and complete faster
+    
         const fadeStart = windowHeight + 400;
         const fadeEnd = windowHeight - 100;
         
@@ -235,7 +235,7 @@ function initSocialBar() {
         }
     }
     
-    // Throttle scroll events
+
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -247,6 +247,6 @@ function initSocialBar() {
         }
     }, { passive: true });
     
-    // Initial state
+
     updateVisibility();
 }

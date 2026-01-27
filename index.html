@@ -147,7 +147,7 @@
                         </p>
                         <div class="about-stats">
                             <div class="stat">
-                                <span class="stat-number" data-count="3">0</span>
+                                <span class="stat-number" data-count="2">0</span>
                                 <span class="stat-label">Projects</span>
                             </div>
                             <div class="stat">
@@ -369,88 +369,56 @@
                     <span class="title-number">04.</span>
                     Projects
                 </h2>
-                <div class="projects-grid">
-                    <article class="project-card featured">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>📊</span>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="View on GitHub" target="_blank" rel="noopener">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+                <div class="projects-list">
+                    <article class="project-card-full">
                         <div class="project-content">
                             <span class="project-label">Featured Project</span>
-                            <h3 class="project-title">Momentum Backtesting Framework</h3>
+                            <h3 class="project-title">Financial Data Pipeline</h3>
                             <p class="project-description">
-                                A Python-based backtesting framework for momentum strategies. 
-                                Implements cross-sectional momentum, risk management via position sizing, 
-                                and performance attribution.
+                                End-to-end system for automated collection, processing, and storage of financial market data designed for ML models and derivatives valuation. Features GARCH(1,1) volatility forecasting, cross-validation between data sources, and intelligent missing value handling using Kalman filtering. Implements multi-layer outlier detection combining statistical methods with Isolation Forest.
                             </p>
                             <div class="project-tech">
-                                <span>Python</span>
-                                <span>Pandas</span>
-                                <span>NumPy</span>
-                                <span>Matplotlib</span>
+                                <span>TimescaleDB</span>
+                                <span>SQLAlchemy</span>
+                                <span>yfinance</span>
+                                <span>GARCH</span>
+                                <span>Kalman Filter</span>
+                                <span>Isolation Forest</span>
                             </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Marcel-Metzger/financial_data_pipeline" class="project-link" aria-label="View on GitHub" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                                <span>View Repository</span>
+                            </a>
                         </div>
                     </article>
 
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>📉</span>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="View on GitHub" target="_blank" rel="noopener">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+                    <article class="project-card-full">
                         <div class="project-content">
-                            <h3 class="project-title">Portfolio Risk Dashboard</h3>
+                            <span class="project-label">Featured Project</span>
+                            <h3 class="project-title">Trading News Aggregator</h3>
                             <p class="project-description">
-                                Interactive dashboard for visualizing portfolio risk metrics: 
-                                VaR, Expected Shortfall, correlation matrices, and drawdown analysis.
+                                Multi-source news aggregation system for financial markets with automated ticker extraction and semantic story clustering. Integrates seven data sources including Finnhub, SEC EDGAR, GDELT, and German financial press (FAZ, Handelsblatt). Features NLP-based ticker recognition from headlines and vector similarity analysis using sentence transformers for story deduplication.
                             </p>
                             <div class="project-tech">
-                                <span>Python</span>
-                                <span>Streamlit</span>
-                                <span>Plotly</span>
+                                <span>Sentence Transformers</span>
+                                <span>pgvector</span>
+                                <span>SEC EDGAR</span>
+                                <span>AsyncIO</span>
+                                <span>NLP</span>
+                                <span>RSS Parsing</span>
                             </div>
                         </div>
-                    </article>
-
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <span>🤖</span>
-                            </div>
-                            <div class="project-overlay">
-                                <a href="https://github.com/Marcel-Metzger" class="project-link" aria-label="View on GitHub" target="_blank" rel="noopener">
-                                    <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">ML Price Prediction</h3>
-                            <p class="project-description">
-                                Experiments with machine learning models for price forecasting: 
-                                feature engineering, cross-validation, and ensemble methods.
-                            </p>
-                            <div class="project-tech">
-                                <span>Scikit-Learn</span>
-                                <span>XGBoost</span>
-                                <span>Jupyter</span>
-                            </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Marcel-Metzger/trading_news_fetcher" class="project-link" aria-label="View on GitHub" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                                <span>View Repository</span>
+                            </a>
                         </div>
                     </article>
                 </div>
