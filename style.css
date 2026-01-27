@@ -1329,33 +1329,38 @@ img {
     gap: 30px;
 }
 
-.project-card-full {
+a.project-card-full {
     background: var(--bg-primary);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 32px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 24px;
     transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
 }
 
-[data-theme="light"] .project-card-full {
+[data-theme="light"] a.project-card-full {
     background: var(--bg-tertiary);
 }
 
-.project-card-full:hover {
+a.project-card-full:hover {
     transform: translateY(-5px);
     border-color: var(--accent);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-.project-card-full .project-content {
+a.project-card-full .project-content {
     flex: 1;
+    z-index: 1;
 }
 
-.project-card-full .project-label {
+a.project-card-full .project-label {
     font-family: var(--font-mono);
     color: var(--accent);
     font-size: 0.8rem;
@@ -1363,68 +1368,73 @@ img {
     letter-spacing: 1px;
 }
 
-.project-card-full .project-title {
+a.project-card-full .project-title {
     font-size: 1.5rem;
     margin: 12px 0 16px;
+    color: var(--text-primary);
 }
 
-.project-card-full .project-description {
+a.project-card-full .project-description {
     color: var(--text-secondary);
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 20px;
 }
 
-.project-card-full .project-tech {
+a.project-card-full .project-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
 }
 
-.project-card-full .project-tech span {
+a.project-card-full .project-tech span {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--accent);
-    background: var(--accent-glow);
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: 1px solid var(--accent);
-}
-
-.project-links {
-    display: flex;
-    align-items: center;
-}
-
-.project-card-full .project-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
-    background: var(--accent);
-    color: white;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: transparent;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
     transition: var(--transition);
-    white-space: nowrap;
 }
 
-.project-card-full .project-link:hover {
-    background: var(--accent-hover);
-    transform: scale(1.05);
+a.project-card-full:hover .project-tech span {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
-.project-card-full .project-link svg {
-    width: 18px;
-    height: 18px;
+/* Project Overlay with GitHub Icon */
+a.project-card-full .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 2;
+}
+
+a.project-card-full:hover .project-overlay {
+    opacity: 1;
+}
+
+a.project-card-full .project-overlay svg {
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+a.project-card-full:hover .project-overlay svg {
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
-    .project-card-full {
+    a.project-card-full {
         flex-direction: column;
         padding: 24px;
     }
+}
     
     .project-links {
         width: 100%;
