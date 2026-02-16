@@ -656,9 +656,9 @@ img {
 }
 
 [data-theme="light"] .skill-tag:hover {
-    background: #6366f1;
+    background: var(--accent);
     color: #ffffff;
-    border-color: #6366f1;
+    border-color: var(--accent);
 }
 
 .skill-category:hover {
