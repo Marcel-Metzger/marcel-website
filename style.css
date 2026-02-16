@@ -401,7 +401,7 @@ img {
 
 .btn-primary {
     background: var(--accent);
-    color: #a0a0b0;
+    color: #1a1a25;
 }
 
 [data-theme="light"] .btn-primary {
@@ -1465,5 +1465,5 @@ a.project-card-full:hover .project-overlay svg {
 
 /* Light mode: lighter project overlay */
 [data-theme="light"] a.project-card-full:hover .project-overlay {
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.50);
 }
