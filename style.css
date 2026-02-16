@@ -32,8 +32,8 @@
     --text-muted: #4b5563;
     --border: #e2e8f0;
     --code-bg: #1e1e1e;
-    --accent: #3730a3;
-    --accent-hover: #312e81;
+    --accent: #2e2a8f;
+    --accent-hover: #272470;
     --accent-glow: rgba(55, 48, 163, 0.3);
 }
 
@@ -1465,5 +1465,5 @@ a.project-card-full:hover .project-overlay svg {
 
 /* Light mode: lighter project overlay */
 [data-theme="light"] a.project-card-full:hover .project-overlay {
-    background: rgba(0, 0, 0, 0.50);
+    background: rgba(0, 0, 0, 0.40);
 }
