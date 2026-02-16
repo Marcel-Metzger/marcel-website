@@ -32,9 +32,9 @@
     --text-muted: #4b5563;
     --border: #e2e8f0;
     --code-bg: #1e1e1e;
-    --accent: #1e40af;
-    --accent-hover: #1e3a8a;
-    --accent-glow: rgba(30, 64, 175, 0.3);
+    --accent: #1e3a8a;
+    --accent-hover: #172554;
+    --accent-glow: rgba(30, 58, 138, 0.3);
 }
 
 [data-theme="light"] .code-keyword {
@@ -1465,5 +1465,5 @@ a.project-card-full:hover .project-overlay svg {
 
 /* Light mode: lighter project overlay */
 [data-theme="light"] a.project-card-full:hover .project-overlay {
-    background: rgba(0, 0, 0, 0.20);
+    background: rgba(30, 78, 216, 0.75);
 }
