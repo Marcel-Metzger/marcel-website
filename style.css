@@ -36,7 +36,7 @@
     --accent: #1e3a8a;
     --accent-hover: #172554;
     --accent-glow: rgba(30, 58, 138, 0.3);
-    --overlay-bg: rgba(30, 78, 216, 0.5);
+    --overlay-bg: rgba(30, 78, 216, 0.3);
 }
 
 [data-theme="light"] .code-keyword {
