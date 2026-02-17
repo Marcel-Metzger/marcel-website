@@ -1465,5 +1465,5 @@ a.project-card-full:hover .project-overlay svg {
 
 /* Light mode: lighter project overlay */
 [data-theme="light"] a.project-card-full:hover .project-overlay {
-    background: rgba(30, 78, 216, 0.75);
+    background: rgba(30, 78, 216, 0.75) !important;
 }
