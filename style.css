@@ -14,6 +14,7 @@
     --accent-hover: #fbbf24;
     --accent-glow: rgba(245, 158, 11, 0.3);
     --border: #2a2a3a;
+    --overlay-bg: rgba(0, 0, 0, 0.85);
     --code-bg: #1e1e2e;
     --success: #10b981;
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -35,6 +36,7 @@
     --accent: #1e3a8a;
     --accent-hover: #172554;
     --accent-glow: rgba(30, 58, 138, 0.3);
+    --overlay-bg: rgba(30, 78, 216, 0.5);
 }
 
 [data-theme="light"] .code-keyword {
@@ -1411,7 +1413,7 @@ a.project-card-full:hover .project-tech span {
 a.project-card-full .project-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: var(--overlay-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1424,7 +1426,7 @@ a.project-card-full .project-overlay {
 a.project-card-full-OLD .project-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+    background: var(--overlay-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1463,7 +1465,3 @@ a.project-card-full:hover .project-overlay svg {
     }
 }
 
-/* Light mode: lighter project overlay */
-[data-theme="light"] a.project-card-full:hover .project-overlay {
-    background: rgba(30, 78, 216, 0.75) !important;
-}
