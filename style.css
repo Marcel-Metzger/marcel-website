@@ -1470,3 +1470,4 @@ a.project-card-full:hover .project-overlay svg {
 [data-theme="light"] a.project-card-full:hover .project-overlay svg {
     fill: var(--accent);
 }
+
